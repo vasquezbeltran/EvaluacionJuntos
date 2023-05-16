@@ -4,9 +4,9 @@ Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicaci�
 ## Objetivo
 
 ## Bases de datos
-1. *ENDES*
-2. *Mapa de pobreza, INEI*
-3. *Base de Datos de Pueblos Indígenas u Originarios, MINCUL*
+- **ENDES**
+- *Mapa de pobreza, INEI*
+- *Base de Datos de Pueblos Indígenas u Originarios, MINCUL*
 
 ## Descripción de archivos
 - *1_VariablesTesis.R*: construcción de variables
