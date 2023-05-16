@@ -1,6 +1,5 @@
 ---
-title: Evaluación de impacto del programa Juntos sobre nutrición infantil. Comparación
-  de métodos...
+title: Evaluación de impacto del programa Juntos sobre nutrición infantil - Construcción de variables
 author: "Aníbal Vásquez Beltrán"
 date: '2022-06-13'
 output:
