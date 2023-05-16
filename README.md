@@ -3,7 +3,7 @@ Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicaci�
 
 ## Objetivo
 
-## Fuentes
+## Datos
 - **ENDES**
 - **Mapa de pobreza, INEI**
 - **Base de Datos de Pueblos Indígenas u Originarios, MINCUL**
@@ -13,5 +13,6 @@ Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicaci�
 - **2_AnalisisExpTesis.Rmd**: análisis exploratorio de datos
 - **3_EstimacionTesis.Rmd**: estimación de ATE y ATET
 
-## Output
+## Outputs
 - Tabla 1
+- Gráfico 1
