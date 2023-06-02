@@ -5,14 +5,15 @@ Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicaci�
 
 ## Datos
 - **ENDES**
-- **Mapa de pobreza, INEI**
-- **Base de Datos de Pueblos Indígenas u Originarios, MINCUL**
+- **Mapa de pobreza**. Elaborado por INEI. Año 2018. Archivos ".xlsx". Enlace . Descargado el /abril/2023.
+- **Base de Datos Oficial de Pueblos Indígenas u Originarios, MINCUL**
 
 ## Código R
-- **1_VariablesTesis.R**: construcción de variables
-- **2_AnalisisExpTesis.Rmd**: análisis exploratorio de datos
-- **3_EstimacionTesis.Rmd**: estimación de ATE y ATET
+- **VariablesTesis.R**: script R para construcción de variables
+- **AnalisisExpTesis.R**: script R para análisis exploratorio de datos
+- **EstimacionTesis.R**: script R para estimación de ATE y ATET
 
 ## Outputs
-- Tabla 1
-- Gráfico 1
+- **Tabla1**: Estadísticas descriptivas
+- **Gráfico1**: Distribución de variable respuesta 
+- **Tabla2**
