@@ -1,14 +1,18 @@
 # JuntosEvaluacion1
-Título: "Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresion, matching y weighting".
-Tesis.
 
-## Objetivos
+Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresión, matching y weighting.
+Tesis. UNMSM, 2023.
+
+## Resumen de tesis
+
+
+## Objetivos de los scripts
 Los scripts realizan 
 
 ## Datos
 - **ENDES**. INEI, 2018 y 2019. Archivos
 - **Mapa de pobreza**. INEI, 2018. Archivos ".xlsx". Enlace . Descargado el xx/abril/2023.
-- **Base de Datos Oficial de Pueblos Indígenas u Originarios**. MINCUL, 2023. Archivos ".xlsx". Enlace . Descargado el 
+- **Base de Datos de Pueblos Indígenas u Originarios**. MINCUL, 2023. Archivos ".xlsx". Enlace . Descargado el 
 
 ## Códigos
 - **VariablesTesis.R**: script R para construcción de variables
@@ -18,4 +22,5 @@ Los scripts realizan
 ## Outputs
 - **Tabla1**: Estadísticas descriptivas
 - **Gráfico1**: Distribución de variable respuesta 
-- **Tabla2**
+- **Tabla2**: Estadísticas de balance
+- **Grafico2**: Estadísticas de balance
