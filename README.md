@@ -2,7 +2,7 @@
 Título: "Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresion, matching y weighting".
 Tesis.
 
-## Objetivo
+## Objetivos
 Los scripts realizan 
 
 ## Datos
@@ -10,7 +10,7 @@ Los scripts realizan
 - **Mapa de pobreza**. INEI, 2018. Archivos ".xlsx". Enlace . Descargado el xx/abril/2023.
 - **Base de Datos Oficial de Pueblos Indígenas u Originarios**. MINCUL, 2023. Archivos ".xlsx". Enlace . Descargado el 
 
-## Código R
+## Códigos
 - **VariablesTesis.R**: script R para construcción de variables
 - **AnalisisExpTesis.R**: script R para análisis exploratorio de datos
 - **EstimacionTesis.R**: script R para estimación de ATE y ATET
