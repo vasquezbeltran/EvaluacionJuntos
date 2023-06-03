@@ -10,9 +10,9 @@ Tesis. UNMSM, 2023.
 Los scripts realizan 
 
 ## Datos
-- **ENDES**. INEI, 2018 y 2019. Archivos "RECH0.sav", 
-- **Mapa de pobreza**. INEI, 2018. Archivos ".xlsx". Enlace . Descargado el xx/abril/2023.
-- **Base de Datos de Pueblos Indígenas u Originarios**. MINCUL, 2023. Archivos ".xlsx". Enlace . Descargado el 
+- **ENDES**, INEI, 2018 y 2019. Archivos "RECH0.sav", 
+- **Mapa de Pobreza Monetaria Provincial y Distrital**, INEI, 2018. Anexo N° 2. Archivo: "Anexo Estadístico.xlsx", descargado el xx/abril/2023 desde .
+- **Base de Datos de Pueblos Indígenas u Originarios**, MINCUL, 2023. Lista de centros poblados. Archivo ".xlsx". Enlace . Descargado el 
 
 ## Códigos
 - **VariablesTesis.R**: script R para construcción de variables
