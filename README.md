@@ -10,7 +10,7 @@ Tesis. UNMSM, 2023.
 Los scripts realizan 
 
 ## Datos
-- **ENDES**. INEI, 2018 y 2019. Archivos
+- **ENDES**. INEI, 2018 y 2019. Archivos "RECH0.sav", 
 - **Mapa de pobreza**. INEI, 2018. Archivos ".xlsx". Enlace . Descargado el xx/abril/2023.
 - **Base de Datos de Pueblos Indígenas u Originarios**. MINCUL, 2023. Archivos ".xlsx". Enlace . Descargado el 
 
