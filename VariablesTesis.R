@@ -14,7 +14,8 @@ library("stringr")  # usar str_sub()
 
 ## Bases de datos ## -----------------------------------------------------------
 
-# (1) ENDES 2018
+
+# ENDES 2018
 #  Cuestionario de hogares: 
 RECH0   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH0.sav")
 RECH1   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH1.sav")
@@ -26,7 +27,8 @@ RECH6   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo74/RECH6.sav")
 REC0111 <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo66/REC0111.sav")
 REC91   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo66/REC91.sav")
 
-## Mapa de Pobreza Monetaria, INEI 2018
+
+# Mapa de Pobreza Monetaria, INEI 2018
 #  Archivo "Anexo Estadístico.xlsx"
 #  https://www.gob.pe/institucion/inei/informes-publicaciones/3204872-mapa-de-pobreza-provincial-y-distrital-2018
 nomcolumnas <- c("ubigeo", "agr", "distrito", "poblacionpro", "IC_inf", "IC_sup", "ubicacionpob")
@@ -38,7 +40,8 @@ mapapobreza <- mapapobreza %>%
   filter(!is.na(ubigeo)) %>% 
   filter(!is.na(ubicacionpob))
 
-## Base de Datos de Pueblos Indígenas u Originarios, MINCUL, 2023
+
+# Base de Datos de Pueblos Indígenas u Originarios, MINCUL, 2023
 #  Archivo "BDPI - Centros poblados - 2022_0.xlsx"
 #  https://bdpi.cultura.gob.pe/buscador-de-localidades-de-pueblos-indigenas
 nomcolumnas <- c("N", "ubigeoCCPP", "nombreCCPP", "nrolocalidades", "nomlocalidades", "ambito", "puebloindigena", 
