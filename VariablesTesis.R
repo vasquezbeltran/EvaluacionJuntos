@@ -1,127 +1,58 @@
----
-title: Evaluación de impacto del programa Juntos sobre nutrición infantil - Construcción de variables
-author: "Aníbal Vásquez Beltrán"
-date: '2022-06-13'
-output:
-  html_document:
-    toc: yes
-    df_print: paged
-editor_options:
-  chunk_output_type: console
-  markdown:
-    wrap: 100
----
 
+# Tesis
+# Script para construcción de variables
 
+# Limpiar
+remove(list = ls())
 
-# PAQUETES
-
-```{r, eval = FALSE}
-
-install.packages("haven")
-install.packages("readxl")
-install.packages("dplyr")
-install.packages("stringr")
-install.packages("ggplot2")
-
-```
-
-```{r}
-
+# Paquetes
 library("haven")    # leer bases SPSS (.sav)
-library("readxl")   # leer bases Excel
+library("readxl")   # leer bases Excel (.xlsx)
 library("dplyr")    # procesar datos
-library("stringr")  # usar str_replace(), str_detect(), str_sub()
-library("ggplot2")  # usar cut_width()
-
-```
+library("stringr")  # usar str_sub()
 
 
+## Bases de datos ## -----------------------------------------------------------
 
-# BASES DE DATOS
-
-ENDES 2018
-
-```{r}
-
-# Cuestionario de hogares: 
+# (1) ENDES 2018
+#  Cuestionario de hogares: 
 RECH0   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH0.sav")
 RECH1   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH1.sav")
-RECH4   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH4.sav")
-RECHM   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECHM.sav")
 RECH23  <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo65/RECH23.sav")
+RECH4   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo64/RECH4.sav")
 PROGRA  <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo569/Programas Sociales x Hogar.sav")
-RECH5   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo74/RECH5.sav")
 RECH6   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo74/RECH6.sav")
-REC44   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo74/REC44.sav")
-
-# Cuestionario de mujeres: 
+#  Cuestionario de mujeres: 
 REC0111 <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo66/REC0111.sav")
 REC91   <- read_sav("E:/BD/ENDES/ENDES2018/Bases/Modulo66/REC91.sav")
 
-# Cuestionario de salud: 
-
-```
-
-ENDES 2019
-
-```{r, include = FALSE, eval = FALSE}
-
-# Cuestionario de hogares: 
-RECH0   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo64/RECH0.sav")
-RECH1   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo64/RECH1.sav")
-RECH4   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo64/RECH4.sav")
-RECHM   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo64/RECHM.sav")
-RECH23  <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo65/RECH23.sav")
-PROGRA  <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo569/Programas Sociales x Hogar.sav")
-RECH5   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo74/RECH5.sav")
-RECH6   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo74/RECH6.sav")
-REC44   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo74/REC44.sav")
-
-# Cuestionario de mujeres: 
-REC0111 <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo66/REC0111.sav")
-REC91   <- read_sav("E:/BD/ENDES/ENDES2019/Bases/Modulo66/REC91.sav")
-
-# Cuestionario de salud: 
-
-```
-
-Mapa de Pobreza 2018, INEI
-(Anexo 2)
-
-```{r}
-
+## Mapa de Pobreza Monetaria, INEI 2018
+#  Archivo "Anexo Estadístico.xlsx"
+#  https://www.gob.pe/institucion/inei/informes-publicaciones/3204872-mapa-de-pobreza-provincial-y-distrital-2018
 nomcolumnas <- c("ubigeo", "agr", "distrito", "poblacionpro", "IC_inf", "IC_sup", "ubicacionpob")
 mapapobreza <- read_xlsx(path = "E:/BD/MapaPobreza/MapaPobreza2018/Documentación/Anexo Estadístico.xlsx", 
-                         sheet = "Anexo2", skip = 9, col_names = nomcolumnas)
+                         sheet = "Anexo2", 
+                         range = "A8:G2158", 
+                         col_names = nomcolumnas)  
 mapapobreza <- mapapobreza %>% 
-  filter(ubicacionpob != "Continúa…") %>% 
-  filter(ubicacionpob != "…Conclusión")
-remove(nomcolumnas)
+  filter(!is.na(ubigeo)) %>% 
+  filter(!is.na(ubicacionpob))
 
-```
-
-Base de Datos de Pueblos Indígenas u Originarios, MINCUL
-(Anexo Centros Poblados, descargada 06/abr/2023)
-
-```{r}
-
-nomcolumnas <- c("N", "ubigeoCCPP", "nombreCCPP", "nrolocalidades", "nomlocalidades", "ambito", "puebloindigena", "departamento", "provincia", "distrito", "ubigeo", "region", "area", "tipoadm", "categoriaCCPP", "distancia_capdis", "distancia_cappro", "distancia_capdep", "coolongitud", "coolatitud")
+## Base de Datos de Pueblos Indígenas u Originarios, MINCUL, 2023
+#  Archivo "BDPI - Centros poblados - 2022_0.xlsx"
+#  https://bdpi.cultura.gob.pe/buscador-de-localidades-de-pueblos-indigenas
+nomcolumnas <- c("N", "ubigeoCCPP", "nombreCCPP", "nrolocalidades", "nomlocalidades", "ambito", "puebloindigena", 
+                 "departamento", "provincia", "distrito", "ubigeo", "region", "area", "tipoadm", "categoriaCCPP")
 bdpi <- read_xlsx(path = "E:/BD/BDPI/BDPI2023.04.06/BDPI - Centros poblados - 2022_0.xlsx", 
                   sheet = "1. BDPI - CC.PP", 
-                  range = "B8:U36436", 
+                  range = "B8:P36436", 
                   col_names = nomcolumnas)
-remove(nomcolumnas)
-
-```
 
 
+## Variables
 
-# VARIABLES
+## Variables de resultado y covariables del niño/niña ## -----------------------
 
-## Variables de resultado y covariables del niño/niña
-
-```{r}
 
 # El punto de partida es RECH6 
 base <- NULL
@@ -160,12 +91,9 @@ base <- base %>%
     HC70 >= -300                ~ 0,
     is.na(HC70)                 ~ NA_real_ )) 
 
-```
 
+## Variables de tratamiento ## -------------------------------------------------
 
-## Variables de tratamiento
-
-```{r}
 
 # Crear "tratamiento"
 temp <- PROGRA %>%
@@ -195,12 +123,9 @@ base <- base %>%
     edad >  tiempotra_hogar ~ tiempotra_hogar,
     edad <= tiempotra_hogar ~ edad)) 
 
-```
 
+## Covariables de la madre o del padre ## --------------------------------------
 
-## Covariables de la madre o del padre
-
-```{r}
 
 # Previo: crear "id_madre" y "id_padre"
 temp <- RECH1 %>% 
@@ -301,14 +226,11 @@ base <- base %>%
     is.na(seguropri_madre) & is.na(seguropri_padre) ~ NA_real_, 
     TRUE                                            ~ 0)) 
 
-```
+
+## Covariables del hogar ## ----------------------------------------------------
 
 
-## Covariables del hogar
-
-```{r}
-
-# Crear "nromiembros" y "hacinamiento"
+# Crear "hacinamiento"
 temp <- RECH1 %>% 
   group_by(HHID) %>% 
   summarise(nromiembros = n()) %>% 
@@ -351,19 +273,19 @@ temp <- RECH23 %>%
 base <- base %>% left_join(temp, by = "HHID")
 
 
-# Crear "agua", "serhigienico" y "electricidad"
+# Crear "agua", "desague" y "electricidad"
 temp <- RECH23 %>% 
   mutate(agua = case_when(
     HV201 == 11                                 ~ 1,
     HV201 %in% c(12,13,21,22,41,43,51,61,71,96) ~ 0,
     HV201 == NA                                 ~ NA_real_)) %>% 
-  mutate(serhigienico = case_when(
+  mutate(desague = case_when(
     HV205 == 11                           ~ 1,
     HV205 %in% c(12,21,22,23,24,31,32,96) ~ 0,
     HV205 == NA                           ~ NA_real_)) %>% 
   mutate(electricidad = HV206) %>% 
-  mutate(servicios = agua + serhigienico + electricidad) %>% 
-  select(HHID, HV201, agua, HV205, serhigienico, HV206, SH70, electricidad, servicios)
+  mutate(servicios = agua + desague + electricidad) %>% 
+  select(HHID, HV201, agua, HV205, desague, HV206, SH70, electricidad, servicios)
 base <- base %>% left_join(temp, by = "HHID")
 
 
@@ -399,14 +321,13 @@ temp <- RECH0 %>%
   select(HHID, HV025, area, HV026, lugar)
 base <- base %>% left_join(temp, by = "HHID")
 
-```
+
+## Covariables del distrito ## -------------------------------------------------
 
 
-## Covariables del distrito
-
-```{r}
-
-# Previo: crear "ubigeo" y "ubigeoCCPP", y corregir ubigeo y CODCCPP de los hogares con ubigeo = 120699 (un ubigeo que agrupaba a los actuales distritos de Pangoa, Mazamari y Vizcatán del Ene): 
+# Previo: 
+# Crear "ubigeo" y corregir el ubigeo y CODCCPP de los hogares con ubigeo = 120699 (un ubigeo que 
+#  agrupó a los actuales distritos de Pangoa, Mazamari y Vizcatán del Ene): 
 base <- base %>% 
   left_join(RECH0 %>% select(HHID, ubigeo, region = HV024, CODCCPP, NOMCCPP), by = "HHID") %>% 
   mutate(CODCCPP = case_when(
@@ -438,8 +359,12 @@ base <- base %>%
     ubigeo == "120699" & NOMCCPP == "NUEVA UNION"                ~ "120609",
     ubigeo == "120699" & NOMCCPP == "LIBERTAD DE MAZANGARO"      ~ "120609",
     ubigeo == "120699" & NOMCCPP == "SEÑOR DE LOS MILAGROS"      ~ "120604",
-    TRUE                                                         ~ ubigeo)) %>% 
-  mutate(ubigeoCCPP = paste(ubigeo, CODCCPP, sep = "")) 
+    TRUE                                                         ~ ubigeo)) 
+# Crear "ubigeoCCPP" (ubigeo del centro poblado)
+base <- base %>% 
+  mutate(ubigeoCCPP = case_when(
+    !is.na(ubigeo) & !is.na(CODCCPP) ~ paste(ubigeo, CODCCPP, sep = ""),
+    TRUE                             ~ NA_character_)) 
 
 
 # Crear "pobreza"
@@ -453,9 +378,10 @@ base <- base %>% left_join(temp, by = "ubigeo")
 base <- base %>% 
   left_join(bdpi %>% select(ubigeoCCPP, nombreCCPP, ambito, puebloindigena), by = "ubigeoCCPP") %>% 
   mutate(puebloamazonico = case_when(
-    ambito %in% c("Amazónico", "Amazónico / Andino") ~ 1,
-    ambito == "Andino"                               ~ 0,
-    is.na(ambito)                                    ~ 0))
+    !is.na(CODCCPP) & ambito %in% c("Amazónico", "Amazónico / Andino") ~ 1,
+    !is.na(CODCCPP) & ambito == "Andino"                               ~ 0,
+    !is.na(CODCCPP) & is.na(ambito)                                    ~ 0,
+    is.na(CODCCPP)                                                     ~ NA_real_))
 
 
 # Crear "altitud"
@@ -463,7 +389,5 @@ base <- base %>%
   left_join(RECH0 %>% select(HHID, altitud = HV040), by = "HHID") 
 
 
-remove(temp)
-cbind(colnames(base))
-
-```
+save(base, file = "D:/OneDrive/TesisUNMSM/CodigoTesis/3_Resultados/base.RData")
+remove(temp,nomcolumnas)
