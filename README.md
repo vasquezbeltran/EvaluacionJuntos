@@ -18,8 +18,7 @@ Archivo "Anexo Estadístico.xlsx", consultado el 03/abr/2023, desde https://www.
 Archivo Excel "BDPI - Centros poblados - 2022_0.xlsx", consultado el 06/abr/2023, desde https://bdpi.cultura.gob.pe/buscador-de-localidades-de-pueblos-indigenas.
 
 ## Códigos
-- [**VariablesTesis.R**](https://github.com/vasquezbeltran/EvaluacionJuntos/blob/main/VariablesTesis.R)
-- **VariablesTesis.R**: script R para construcción de variables
+- [**VariablesTesis.R**](https://github.com/vasquezbeltran/EvaluacionJuntos/blob/main/VariablesTesis.R): script R para construcción de variables
 - **AnalisisExpTesis.R**: script R para análisis exploratorio de datos
 - **EstimacionTesis.R**: script R para estimación de ATE y ATET
 
