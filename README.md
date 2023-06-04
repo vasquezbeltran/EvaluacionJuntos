@@ -11,9 +11,9 @@ Los scripts realizan
 
 ## Datos
 - **ENDES**, INEI, 2018 y 2019. \
-Archivos SPSS: "RECH0.sav", "RECH1.sav", "RECH23.sav", "RECH4.sav", "RECH6.sav", "Programas Sociales x Hogar.sav", "REC0111.sav" y "REC91.sav". Desde https://proyectos.inei.gob.pe/microdatos/
+Archivos "RECH0.sav", "RECH1.sav", "RECH23.sav", "RECH4.sav", "RECH6.sav", "Programas Sociales x Hogar.sav", "REC0111.sav" y "REC91.sav"; desde https://proyectos.inei.gob.pe/microdatos/
 - **Mapa de Pobreza Monetaria Provincial y Distrital**, INEI, 2018. \
-Archivo Excel "Anexo Estadístico.xlsx", consultado el 03/abr/2023, desde https://www.gob.pe/institucion/inei/informes-publicaciones/3204872-mapa-de-pobreza-provincial-y-distrital-2018
+Archivo "Anexo Estadístico.xlsx", consultado el 03/abr/2023, desde https://www.gob.pe/institucion/inei/informes-publicaciones/3204872-mapa-de-pobreza-provincial-y-distrital-2018
 - **Base de Datos de Pueblos Indígenas u Originarios**, MINCUL, 2023. \
 Archivo Excel "BDPI - Centros poblados - 2022_0.xlsx", consultado el 06/abr/2023, desde https://bdpi.cultura.gob.pe/buscador-de-localidades-de-pueblos-indigenas.
 
