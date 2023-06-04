@@ -27,3 +27,7 @@ Archivo Excel "BDPI - Centros poblados - 2022_0.xlsx", consultado el 06/abr/2023
 - **Gráfico1**: Distribución de variable respuesta 
 - **Tabla2**: Estadísticas de balance
 - **Grafico2**: Estadísticas de balance
+
+## Reportes
+- Documento final Tesis.lyx
+- Presentación TesisPresentacion.pptx
