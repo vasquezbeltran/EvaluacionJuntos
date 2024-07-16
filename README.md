@@ -1,7 +1,6 @@
 # JuntosEvaluacion1
 
-Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresión, matching y weighting.
-Tesis. UNMSM, 2023.
+Proyecto de tesis. Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresión, matching y weighting.
 
 ## Resumen de tesis
 
