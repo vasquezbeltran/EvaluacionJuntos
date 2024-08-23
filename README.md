@@ -1,6 +1,6 @@
 # JuntosEvaluacion1
 
-Proyecto de tesis. Evaluación de impacto del programa Juntos sobre nutricional infantil. Aplicación de métodos de regresión, matching y weighting.
+Proyecto de tesis. Evaluación de impacto del programa Juntos sobre nutricional infantil. 
 
 ## Resumen de tesis
 
@@ -24,8 +24,8 @@ Archivo "BDPI - Centros poblados - 2022_0.xlsx", encontrado en https://bdpi.cult
 ## Outputs
 - **Tabla1**: Estadísticas descriptivas
 - **Gráfico1**: Distribución de variable respuesta 
-- **Tabla2**: Estadísticas de balance
-- **Grafico2**: Estadísticas de balance
+- **Tabla2**: 
+- **Grafico2**: 
 
 ## Reportes
 - Documento final Tesis.lyx
